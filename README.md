@@ -1,7 +1,7 @@
 # edupham_fillable
 
 #### Cài đặt chạy lệnh sau:
-- composer require edupham/fillable:dev
+- composer require edupham/fillable:dev-master
 
 #### Chạy lệnh sau để xem danh sách table:
 - php artisan table:show-list
