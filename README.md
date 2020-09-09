@@ -3,7 +3,8 @@ Package giúp DEV xem danh sách các table trong db và các trường của m�
 
 Ngoài ra, bạn có thể dùng các field trên để khai báo fillable trong model. 
 
-## Cài đặt, chạy lệnh:
+## Cài đặt
+Chạy lệnh:
 - composer require edupham/fillable:dev-master
 
 Hoặc nếu chỉ muốn cài đặt ở môi trường phát triển, chạy lệnh:
