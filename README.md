@@ -1,4 +1,7 @@
-# Package Edupham Fillable
+# Laravel Package: Edupham Fillable
+Package giúp DEV xem danh sách các table trong db và các trường của một table bằng dòng lệnh.
+
+Ngoài ra, bạn có thể dùng các field trên để khai báo fillable trong model. 
 
 ## Cài đặt, chạy lệnh:
 - composer require edupham/fillable:dev-master
