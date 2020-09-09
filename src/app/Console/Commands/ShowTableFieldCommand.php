@@ -17,7 +17,7 @@ class ShowTableFieldCommand extends Command
      * The console command description.     *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Lệnh hiển thị danh sách field của table';
 
     /**
      * ShowTableFieldCommand constructor.
