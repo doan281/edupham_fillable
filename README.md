@@ -3,6 +3,9 @@
 #### Cài đặt, chạy lệnh:
 - composer require edupham/fillable:dev-master
 
+#### Hoặc nếu chỉ muốn cài đặt ở môi trường phát triển, chạy lệnh:
+- composer require --dev edupham/fillable:dev-master
+
 #### Chức năng:
 Xem danh sách table, chạy lệnh:
 - php artisan table:show-list
