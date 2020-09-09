@@ -1,0 +1,27 @@
+{
+    "name": "edupham/fillable",
+    "description": "Artisan Command Get Table Field",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "doanpv",
+            "email": "doan281@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "classmap": [],
+        "psr-4": {
+            "Edupham\\Fillable\\": "src/"
+        },
+        "files": []
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Edupham\\Fillable\\EduphamFillableServiceProvider"
+            ]
+        }
+    }
+}
