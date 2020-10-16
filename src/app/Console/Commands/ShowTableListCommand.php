@@ -47,35 +47,46 @@ class ShowTableListCommand extends Command
 
         $tables = DB::select('SHOW TABLES');
         if (is_array($tables) && count($tables) > 0) {
-            echo "\nTotal tables: " . count($tables) . "\n";
+            //echo "\nTotal tables: " . count($tables) . "\n";
+            $content = PHP_EOL . date('d/m/Y H:i:s') . PHP_EOL;
             foreach($tables as $index => $table)
             {
                 switch ($type) {
                     case 'default':
                         foreach ($table as $key => $value) {
-                            echo ($index + 1) . ". " . $value."\n";
+                            //echo ($index + 1) . ". " . $value."\n";
+                            $content .= ($index + 1) . ". " . $value."\n";
                         }
                         break;
                     case 'upper':
                         foreach ($table as $key => $value) {
-                            echo ($index + 1) . ". " . strtoupper($value)."\n";
+                            //echo ($index + 1) . ". " . strtoupper($value)."\n";
+                            $content .= ($index + 1) . ". " . strtoupper($value)."\n";
                         }
                         break;
                     case 'const':
                         // use const in class
                         foreach ($table as $key => $value) {
-                            echo 'const TABLE_' . strtoupper($value) . " = '" . $value . "';" . "\n";
+                            //echo 'const TABLE_' . strtoupper($value) . " = '" . $value . "';" . "\n";
+                            $content .= 'const TABLE_' . strtoupper($value) . " = '" . $value . "';" . "\n";
                         }
                         break;
                     case 'define':
                         // use define in helper
                         foreach ($table as $key => $value) {
-                            echo "define('TABLE_" . strtoupper($value) . "', '" . $value . "');" . "\n";
+                            //echo "define('TABLE_" . strtoupper($value) . "', '" . $value . "');" . "\n";
+                            $content .= "define('TABLE_" . strtoupper($value) . "', '" . $value . "');" . "\n";
                         }
                         break;
                     default:
                 }
             }
+            echo $content;
+            // Lưu ra file
+            $tables_file = storage_path('app/public/tables.txt');
+            $file = @fopen($tables_file, "a") or die("Unable to open file!");
+            @fclose($file);
+            @file_put_contents($tables_file, $content.PHP_EOL , FILE_APPEND | LOCK_EX);
         }
     }
 }

@@ -30,12 +30,18 @@ Các kết quả tương ứng với từng tùy chọn:
 - const: const TABLE_USERS = 'users';
 - define: define('TABLE_USERS', 'users');
 
+Kết quả được lưu ra file theo đường dẫn:
+- storage/app/public/tables.txt
+
 #### Xem danh sách field của một table
 Chạy lệnh:
 - php artisan table:show-field <table_name>
 
 Ví dụ:
 - php artisan table:show-field users
+
+Kết quả được lưu ra file theo đường dẫn:
+- storage/app/public/fields.txt
 
 ## Lưu ý:
 Trong một số trường hợp phát sinh lỗi liên quan đến tên lệnh 'table', chạy lệnh sau để cập nhật tải class:

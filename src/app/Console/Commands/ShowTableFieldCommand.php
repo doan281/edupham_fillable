@@ -40,38 +40,53 @@ class ShowTableFieldCommand extends Command
         }
 
         echo $tableName.": ";
+        $content = PHP_EOL . date('d/m/Y H:i:s') . PHP_EOL;
 
         /* Lay danh sach field */
         $columns = Schema::getColumnListing($tableName);
 
         /* In field theo hang ngang */
         echo "\n";
-        echo json_encode(is_array($columns) ? $columns : []);
+        //echo json_encode(is_array($columns) ? $columns : []);
+        $content .= json_encode(is_array($columns) ? $columns : []) . PHP_EOL;
 
-        echo "\n--------------------------------------------------------------------------------------------------\n";
+        //echo "\n--------------------------------------------------------------------------------------------------\n";
         if (is_array($columns) && count($columns) > 0) {
             foreach ($columns as $key => $value){
                 if ($key + 1 < count($columns)){
-                    echo "'" . $value . "',";
+                    //echo "'" . $value . "',";
+                    $content .= "'" . $value . "',";
                 } else {
-                    echo "'" . $value . "'";
+                    //echo "'" . $value . "'";
+                    $content .= "'" . $value . "'";
                 }
             }
+            $content .= PHP_EOL;
         }
 
-        echo "\n--------------------------------------------------------------------------------------------------\n";
-        echo implode(",", $columns);
+        //echo "\n--------------------------------------------------------------------------------------------------\n";
+        //echo implode(",", $columns);
+        $content .= implode(",", $columns) . PHP_EOL;
 
         /* In field theo hang doc */
         if(is_array($columns) && count($columns) > 0){
-            echo "\n--------------------------------------------------------------------------------------------------";
+            //echo "\n--------------------------------------------------------------------------------------------------";
             foreach ($columns as $key => $val) {
                 if ($key + 1 < count($columns)){
-                    echo "\n'".$val."',";
+                    //echo "\n'".$val."',";
+                    $content .= "\n'".$val."',";
                 } else {
-                    echo "\n'".$val."'";
+                    //echo "\n'".$val."'";
+                    $content .= "\n'".$val."'";
                 }
             }
         }
+
+        echo $content;
+        // Lưu ra file
+        $fields_file = storage_path('app/public/fields.txt');
+        $file = @fopen($fields_file, "a") or die("Unable to open file!");
+        @fclose($file);
+        @file_put_contents($fields_file, $content.PHP_EOL , FILE_APPEND | LOCK_EX);
     }
 }
