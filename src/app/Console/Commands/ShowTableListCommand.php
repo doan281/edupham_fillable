@@ -82,6 +82,7 @@ class ShowTableListCommand extends Command
                 }
             }
             echo $content;
+            echo "\n Kết quả được lưu tại: storage/app/public/tables.txt \n";
             // Lưu ra file
             $tables_file = storage_path('app/public/tables.txt');
             $file = @fopen($tables_file, "a") or die("Unable to open file!");

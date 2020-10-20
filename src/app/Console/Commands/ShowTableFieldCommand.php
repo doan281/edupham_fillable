@@ -83,6 +83,7 @@ class ShowTableFieldCommand extends Command
         }
 
         echo $content;
+        echo "\n Kết quả được lưu tại: storage/app/public/fields.txt \n";
         // Lưu ra file
         $fields_file = storage_path('app/public/fields.txt');
         $file = @fopen($fields_file, "a") or die("Unable to open file!");
