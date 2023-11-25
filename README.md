@@ -1,7 +1,9 @@
 # Laravel Package: Edupham Fillable
-Package giúp DEV xem danh sách các table trong db và các trường của một table bằng dòng lệnh.
+Package giúp DEV xem danh sách các table trong DB và các trường của một table bằng dòng lệnh.
 
 Ngoài ra, bạn có thể dùng các field trên để khai báo fillable trong model. 
+
+> Lưu ý: package xử lý với DB MySQL và MariaDB.
 
 ## Cài đặt
 Chạy lệnh:
@@ -25,8 +27,8 @@ Với Laravel từ 5.5.x, hệ thống đăng ký tự động nên không phả
 ## Chức năng:
 #### 1. Xem danh sách table
 Bao gồm các tùy chọn:
-- default: sẽ hiển thị tên table như trong db và kèm theo số thứ tự
-- record: sẽ hiển thị tên table như trong db, kèm theo số thứ tự và số bản ghi hiện có của bảng. Mặc định kết quả sắp xếp tăng dần theo tên của bảng. Nếu cần sắp xếp giảm dần theo số bản ghi thì thêm tuỳ chọn --order=desc
+- default: sẽ hiển thị tên table như trong DB và kèm theo số thứ tự
+- record: sẽ hiển thị tên table như trong DB, kèm theo số thứ tự và số bản ghi hiện có của bảng. Mặc định kết quả sắp xếp tăng dần theo tên của bảng. Nếu cần sắp xếp giảm dần theo số bản ghi thì thêm tuỳ chọn --order=desc
 - upper: sẽ chuyển tên table thành chữ hoa và kèm theo số thứ tự
 - const: sẽ tạo sẵn câu lệnh khai báo hằng số với const
 - define: sẽ tạo sẵn câu lệnh khai báo hằng số với define
@@ -52,12 +54,22 @@ Kết quả được lưu ra file theo đường dẫn:
 #### 2. Xem danh sách field của một table
 Chạy lệnh:
 ```
+php artisan table:show-field
+```
+hoặc
+```
 php artisan table:show-field <table_name>
 ```
 Ví dụ:
 ```
+php artisan table:show-field
+```
+hoặc
+```
 php artisan table:show-field users
 ```
+
+> Lưu ý: nếu không truyền tên bảng <table_name> thì package sẽ liệt kê toàn bộ bảng trong DB đang kết nối để cho người dùng chọn theo số thứ tự.
 
 Kết quả được lưu ra file theo đường dẫn:
 - storage/app/public/fields.txt
