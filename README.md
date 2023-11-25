@@ -23,9 +23,10 @@ Với Laravel 5.4.x trở về trước, Bạn phải cấu hình trong file con
 Với Laravel từ 5.5.x, hệ thống đăng ký tự động nên không phải cấu hình.
 
 ## Chức năng:
-#### Xem danh sách table
+#### 1. Xem danh sách table
 Bao gồm các tùy chọn:
 - default: sẽ hiển thị tên table như trong db và kèm theo số thứ tự
+- record: sẽ hiển thị tên table như trong db, kèm theo số thứ tự và số bản ghi hiện có của bảng. Mặc định kết quả sắp xếp tăng dần theo tên của bảng. Nếu cần sắp xếp giảm dần theo số bản ghi thì thêm tuỳ chọn --order=desc
 - upper: sẽ chuyển tên table thành chữ hoa và kèm theo số thứ tự
 - const: sẽ tạo sẵn câu lệnh khai báo hằng số với const
 - define: sẽ tạo sẵn câu lệnh khai báo hằng số với define
@@ -34,11 +35,13 @@ Các lệnh tương ứng với các tùy chọn:
 ```
 - php artisan table:show-list hoặc php artisan table:show-list default
 - php artisan table:show-list upper
+- php artisan table:show-list record hoặc php artisan table:show-list record --order=desc
 - php artisan table:show-list const
 - php artisan table:show-list define
 ```
-Các kết quả tương ứng với từng tùy chọn:
+Các kết quả tương ứng với từng tùy chọn, ví dụ DB có một bảng users:
 - default: 1. users
+- record: 1. users (1000)
 - upper: 1. USERS
 - const: const TABLE_USERS = 'users';
 - define: define('TABLE_USERS', 'users');
@@ -46,7 +49,7 @@ Các kết quả tương ứng với từng tùy chọn:
 Kết quả được lưu ra file theo đường dẫn:
 - storage/app/public/tables.txt
 
-#### Xem danh sách field của một table
+#### 2. Xem danh sách field của một table
 Chạy lệnh:
 ```
 php artisan table:show-field <table_name>
