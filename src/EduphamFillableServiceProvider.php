@@ -4,6 +4,7 @@ namespace Edupham\Fillable;
 
 use Edupham\Fillable\App\Console\Commands\ShowTableFieldCommand;
 use Edupham\Fillable\App\Console\Commands\ShowTableListCommand;
+use Edupham\Fillable\App\Console\Commands\ShowTableStructureCommand;
 use Illuminate\Support\ServiceProvider;
 
 class EduphamFillableServiceProvider extends ServiceProvider
@@ -13,6 +14,7 @@ class EduphamFillableServiceProvider extends ServiceProvider
     protected $array_command = [
         ShowTableListCommand::class,
         ShowTableFieldCommand::class,
+        ShowTableStructureCommand::class,
     ];
 
     /**
